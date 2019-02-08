@@ -36,6 +36,11 @@ function TodoItem(props: Props) {
   const handleTextBlur = () => {
     setEditable(false)
   }
+  const handleKeyDown = e => {
+    if (e.keyCode === 13) {
+      setEditable(false)
+    }
+  }
 
   return (
     <div className={`todo-item ${done ? 'is-done' : ''}`}>
@@ -48,16 +53,22 @@ function TodoItem(props: Props) {
         />
         <div className='todo-item__checkbox' />
       </label>
-      <input
-        className='todo-item__textbox'
-        value={text}
-        type='text'
-        ref={inputTextRef}
-        readOnly={!editable}
-        onChange={handleTextChange}
-        onDoubleClick={handleTextDblClick}
-        onBlur={handleTextBlur}
-      />
+      {editable && (
+        <input
+          className='todo-item__textbox'
+          value={text}
+          type='text'
+          ref={inputTextRef}
+          onChange={handleTextChange}
+          onKeyDown={handleKeyDown}
+          onBlur={handleTextBlur}
+        />
+      )}
+      {!editable && (
+        <div onDoubleClick={handleTextDblClick} className='todo-item__textbox'>
+          {text}
+        </div>
+      )}
       <button
         type='button'
         className='todo-item__remove-button'
