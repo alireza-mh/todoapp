@@ -1,0 +1,43 @@
+.todo-footer {
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.todo-filter-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-filter-label {
+  margin: 0 2px;
+  padding: 3px 8px;
+  border: 1px solid transparent;
+}
+
+.todo-filter-label:not(.is-active) {
+  cursor: pointer;
+}
+
+.todo-filter-label.is-active {
+  border: 1px solid #ccc;
+}
+
+.todo-filter-shadow {
+  display: none;
+}
+
+.clear-button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 5px;
+}
+
+.clear-button.is-hidden {
+  visibility: hidden;
+}

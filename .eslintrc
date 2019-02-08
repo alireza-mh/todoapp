@@ -9,10 +9,14 @@
     "operator-linebreak": ["error", "after"],
     "arrow-parens": ["error", "as-needed"],
     "no-param-reassign": 0,
-    "object-curly-newline": ["error", { "minProperties": 5, "consistent": true }],
+    "object-curly-newline": [
+      "error",
+      { "minProperties": 5, "consistent": true }
+    ],
 
     "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "react/jsx-one-expression-per-line": 0,
 
     "jsx-a11y/label-has-associated-control": 0,
     "jsx-a11y/label-has-for": 0
