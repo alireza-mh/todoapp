@@ -70,7 +70,7 @@ function TodoItem(props: Props) {
 }
 
 TodoItem.defaultProps = {
-  text: 'Doing good stuff',
+  text: '',
   done: false
 }
 

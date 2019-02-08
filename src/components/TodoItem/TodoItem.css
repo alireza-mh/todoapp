@@ -52,3 +52,7 @@
 .todo-item.is-done .todo-item__textbox {
   text-decoration: line-through;
 }
+
+.todo-item + .todo-item {
+  border-top: 0;
+}
