@@ -1,6 +1,6 @@
 .todo-item {
   display: flex;
-  border: 1px solid #ccc;
+  border-top: 1px solid #ccc;
   align-items: center;
   padding: 5px 15px;
 }
@@ -51,8 +51,4 @@
 
 .todo-item.is-done .todo-item__textbox {
   text-decoration: line-through;
-}
-
-.todo-item + .todo-item {
-  border-top: 0;
 }

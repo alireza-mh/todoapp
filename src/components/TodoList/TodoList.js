@@ -13,10 +13,7 @@ function TodoList(props: Props) {
 }
 
 TodoList.defaultProps = {
-  todos: [
-    { id: 1, text: 'hello man', done: false },
-    { id: 2, text: 'hello kid', done: true }
-  ]
+  todos: []
 }
 
 export default TodoList

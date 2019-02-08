@@ -1,11 +1,11 @@
 // @flow
 import React, { Component } from 'react'
 import './App.css'
-import TodoList from '../TodoList'
+import Todos from '../Todos'
 
 class App extends Component<{}> {
   render() {
-    return <TodoList />
+    return <Todos />
   }
 }
 

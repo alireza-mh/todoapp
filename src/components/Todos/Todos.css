@@ -1,0 +1,11 @@
+.todos {
+  max-width: 400px;
+  margin: 50px auto;
+  background:#fff;
+  border: 1px solid #ccc;
+}
+
+.todo-input {
+  padding: 10px 15px;
+  border: none;
+}
