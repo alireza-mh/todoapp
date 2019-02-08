@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import TodoList from '../TodoList'
 import TodoInput from '../TodoInput'
 import './Todos.css'
-import { removeTodoById } from '../../utils/todoUtils'
+import { removeTodoById, addTodo } from '../../utils/todoUtils'
 
 type Props = {}
 
@@ -11,12 +11,11 @@ function Todos(props: Props) {
   const [todos, setTodos] = useState([])
 
   const handleEnterText = text => {
-    setTodos([...todos, { id: todos.length + 1, text, done: false }])
+    setTodos(addTodo(todos, text))
   }
 
   const handleItemRemove = id => {
-    const newTodos = removeTodoById(todos, id)
-    setTodos(newTodos)
+    setTodos(removeTodoById(todos, id))
   }
 
   return (

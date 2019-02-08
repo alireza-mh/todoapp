@@ -1,9 +1,10 @@
 // @flow
+import uuidv4 from 'uuid/v4'
 import { TodoItemType } from '../types/todos'
 
 type Todos = Array<?TodoItemType>
 
-export function removeTodoById(todos: Todos, id: number): Todos {
+export function removeTodoById(todos: Todos, id: string): Todos {
   if (id === null || id === undefined) {
     throw new Error('given id is null or undefined')
   }
@@ -14,4 +15,10 @@ export function removeTodoById(todos: Todos, id: number): Todos {
   return newTodos
 }
 
-export function addTodo(todos: Todos, todo: TodoItemType) {}
+export function addTodo(todos: Todos, todoText: string): Todos {
+  if (!Array.isArray(todos)) {
+    throw new Error('todos should be an array')
+  }
+  const newTodo = { id: uuidv4(), text: todoText, done: false }
+  return todos.concat(newTodo)
+}

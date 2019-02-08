@@ -1,7 +1,7 @@
 // @flow
 
 export type TodoItemType = {
-  id: number,
+  id: string,
   text: string,
   done: boolean
 }
