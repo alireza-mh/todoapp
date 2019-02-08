@@ -2,15 +2,15 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import './TodoItem.css'
+import { TodoItemType } from '../../types/todos'
 
 type Props = {
-  text?: string,
-  done?: boolean,
+  ...TodoItemType,
   onRemove: Function
 }
 
 function TodoItem(props: Props) {
-  const { text: textProp, done: doneProp, onRemove } = props
+  const { text: textProp, done: doneProp, onRemove, id } = props
   const [text, setText] = useState(textProp)
   const [done, setDone] = useState(doneProp)
   const [editable, setEditable] = useState(false)
@@ -61,17 +61,12 @@ function TodoItem(props: Props) {
       <button
         type='button'
         className='todo-item__remove-button'
-        onClick={onRemove}
+        onClick={onRemove.bind(null, id)}
       >
         &times;
       </button>
     </div>
   )
-}
-
-TodoItem.defaultProps = {
-  text: '',
-  done: false
 }
 
 export default TodoItem
