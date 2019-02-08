@@ -1,7 +1,7 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import TodoItem from '../TodoItem'
-import { TodoItemType } from '../../types/todos'
+import type { TodoItemType } from '../../types/todos'
 
 type Props = {
   todos: Array<TodoItemType>,
@@ -11,7 +11,7 @@ type Props = {
 function TodoList(props: Props) {
   const { todos, onItemRemove } = props
 
-  return todos.map(todo => (
+  return todos.map<React.Element<typeof TodoItem>>((todo: TodoItemType) => (
     <TodoItem key={todo.id} {...todo} onRemove={onItemRemove} />
   ))
 }

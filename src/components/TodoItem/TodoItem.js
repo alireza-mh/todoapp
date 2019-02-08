@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import './TodoItem.css'
-import { TodoItemType } from '../../types/todos'
+import type { TodoItemType } from '../../types/todos'
 
 type Props = {
   ...TodoItemType,

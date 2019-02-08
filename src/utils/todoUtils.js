@@ -1,8 +1,8 @@
 // @flow
 import uuidv4 from 'uuid/v4'
-import { TodoItemType } from '../types/todos'
+import type { TodoItemType } from '../types/todos'
 
-type Todos = Array<?TodoItemType>
+type Todos = Array<TodoItemType>
 
 export function removeTodoById(todos: Todos, id: string): Todos {
   if (id === null || id === undefined) {
