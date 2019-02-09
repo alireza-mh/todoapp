@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TodoList from '../TodoList'
 import TodoInput from '../TodoInput'
 import TodoFooter from '../TodoFooter'
@@ -12,14 +12,23 @@ import {
   changeTodoTextById,
   changeTodoStatusById
 } from '../../utils/todoUtils'
+import {
+  fetchFilter,
+  fetchTodos,
+  saveFilter,
+  saveTodos
+} from '../../api/localStorage'
 
-let todos = []
+let todos = fetchTodos()
+const initialFilter = fetchFilter()
+let didMount = 0
 
 function Todos() {
-  const [activeFilter, setActiveFilter] = useState('All')
+  const [activeFilter, setActiveFilter] = useState(null)
   const [visibleTodos, setVisibleTodos] = useState([])
 
   const setTodos = filter => {
+    saveTodos(todos)
     if (filter === 'Active') {
       setVisibleTodos(getActiveTodos(todos))
     } else if (filter === 'Completed') {
@@ -28,6 +37,12 @@ function Todos() {
       setVisibleTodos(todos)
     }
   }
+
+  useEffect(() => {
+    setTodos(initialFilter)
+    setActiveFilter(initialFilter)
+    didMount = 1
+  }, [])
 
   // event handling
   const handleEnterText = text => {
@@ -49,6 +64,7 @@ function Todos() {
   const handleFilterClick = filter => {
     setActiveFilter(filter)
     setTodos(filter)
+    saveFilter(filter)
   }
   const handleClearCompletes = () => {
     todos = getActiveTodos(todos)
@@ -66,7 +82,7 @@ function Todos() {
       />
       <TodoFooter
         activeFilter={activeFilter}
-        doneTodoCount={getActiveTodos(todos).length}
+        doneTodoCount={didMount && getActiveTodos(todos).length}
         onFilterClick={handleFilterClick}
         onClearCompletesClick={handleClearCompletes}
       />
