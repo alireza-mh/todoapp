@@ -50,6 +50,10 @@ function Todos() {
     setActiveFilter(filter)
     setTodos(filter)
   }
+  const handleClearCompletes = () => {
+    todos = getActiveTodos(todos)
+    setTodos()
+  }
 
   return (
     <div className='todos'>
@@ -64,6 +68,7 @@ function Todos() {
         activeFilter={activeFilter}
         doneTodoCount={getActiveTodos(todos).length}
         onFilterClick={handleFilterClick}
+        onClearCompletesClick={handleClearCompletes}
       />
     </div>
   )

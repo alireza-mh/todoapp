@@ -15,6 +15,10 @@ export function removeTodoById(todos: Todos, id: string): Todos {
   return newTodos
 }
 
+export function removeTodosById(todos: Todos, ids: Array<string>): Todos {
+  return todos.filter(todo => ids.indexOf(todo.id) === -1)
+}
+
 export function addTodo(todos: Todos, todoText: string): Todos {
   if (!Array.isArray(todos)) {
     throw new Error('todos should be an array')

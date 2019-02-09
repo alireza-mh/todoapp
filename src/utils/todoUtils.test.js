@@ -1,6 +1,7 @@
 import todos from '../__fixtures__/todos'
 import {
   removeTodoById,
+  removeTodosById,
   addTodo,
   getDoneTodos,
   getActiveTodos,
@@ -25,6 +26,15 @@ test('throw error if try to remove todo by non existing id from todos', () => {
   expect(() => removeTodoById(todos, id)).toThrow(
     `todo by id "${id}" does not exists!`
   )
+})
+
+test('remove todos given list of ids', () => {
+  const ids = ['1', '2', '5', 'a']
+  const newTodos = removeTodosById(todos, ids)
+  expect(newTodos).toEqual([
+    { id: '3', text: 'third todos', done: true },
+    { id: '4', text: 'forth todos', done: false }
+  ])
 })
 
 test('throw error if id is null or undefined', () => {

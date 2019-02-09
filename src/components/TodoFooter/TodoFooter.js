@@ -6,11 +6,17 @@ import TodoFilter from '../TodoFilter'
 type Props = {
   activeFilter?: string,
   doneTodoCount: number,
-  onFilterClick: Function
+  onFilterClick: Function,
+  onClearCompletesClick: Function
 }
 
 function TodoFooter(props: Props) {
-  const { activeFilter, doneTodoCount, onFilterClick } = props
+  const {
+    activeFilter,
+    doneTodoCount,
+    onFilterClick,
+    onClearCompletesClick
+  } = props
 
   return (
     <div className='todo-footer'>
@@ -36,7 +42,11 @@ function TodoFooter(props: Props) {
         />
       </div>
       <div>
-        <button type='button' className='clear-button'>
+        <button
+          type='button'
+          className='clear-button'
+          onClick={onClearCompletesClick}
+        >
           Clear All Completed
         </button>
       </div>
