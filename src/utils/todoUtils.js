@@ -22,3 +22,34 @@ export function addTodo(todos: Todos, todoText: string): Todos {
   const newTodo = { id: uuidv4(), text: todoText, done: false }
   return todos.concat(newTodo)
 }
+
+export function getDoneTodos(todos: Todos): Todos {
+  return todos.filter(todo => todo.done)
+}
+
+export function getActiveTodos(todos: Todos): Todos {
+  return todos.filter(todo => !todo.done)
+}
+
+export function getTodoIndexById(todos: Todos, id: string) {
+  let index = -1
+  for (let i = 0; i < todos.length; i += 1) {
+    if (todos[i].id === id) {
+      index = i
+      break
+    }
+  }
+  return index
+}
+
+export function changeTodoTextById(todos: Todos, id: string, text: string) {
+  return todos.map<TodoItemType>(todo =>
+    todo.id === id ? { ...todo, text } : todo
+  )
+}
+
+export function changeTodoStatusById(todos: Todos, id: string, done: boolean) {
+  return todos.map<TodoItemType>(todo =>
+    todo.id === id ? { ...todo, done } : todo
+  )
+}

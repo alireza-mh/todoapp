@@ -6,13 +6,13 @@ import type { TodoItemType } from '../../types/todos'
 
 type Props = {
   ...TodoItemType,
-  onRemove: Function
+  onRemove: Function,
+  onChangeText: Function,
+  onChangeStatus: Function
 }
 
 function TodoItem(props: Props) {
-  const { text: textProp, done: doneProp, onRemove, id } = props
-  const [text, setText] = useState(textProp)
-  const [done, setDone] = useState(doneProp)
+  const { text, done, onRemove, id, onChangeText, onChangeStatus } = props
   const [editable, setEditable] = useState(false)
   const inputTextRef = useRef(null)
 
@@ -22,13 +22,13 @@ function TodoItem(props: Props) {
       elem.focus()
       elem.selectionStart = elem.selectionEnd
     }
-  })
+  }, [editable])
 
-  const handleCheckboxChange = () => {
-    setDone(!done)
+  const handleCheckboxChange = e => {
+    onChangeStatus(id, e.target.checked)
   }
   const handleTextChange = e => {
-    setText(e.target.value)
+    onChangeText(id, e.target.value)
   }
   const handleTextDblClick = () => {
     setEditable(true)

@@ -5,14 +5,22 @@ import type { TodoItemType } from '../../types/todos'
 
 type Props = {
   todos: Array<TodoItemType>,
-  onItemRemove: Function
+  onItemRemove: Function,
+  onChangeItemText: Function,
+  onChangeItemStatus: Function
 }
 
 function TodoList(props: Props) {
-  const { todos, onItemRemove } = props
+  const { todos, onItemRemove, onChangeItemText, onChangeItemStatus } = props
 
   return todos.map<React.Element<typeof TodoItem>>((todo: TodoItemType) => (
-    <TodoItem key={todo.id} {...todo} onRemove={onItemRemove} />
+    <TodoItem
+      key={todo.id}
+      {...todo}
+      onRemove={onItemRemove}
+      onChangeText={onChangeItemText}
+      onChangeStatus={onChangeItemStatus}
+    />
   ))
 }
 
