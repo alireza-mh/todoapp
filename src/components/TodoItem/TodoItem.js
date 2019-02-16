@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useEffect, useRef } from 'react'
-import './TodoItem.css'
+import './TodoItem.scss'
 import type { TodoItemType } from '../../types/todos'
 
 type Props = {

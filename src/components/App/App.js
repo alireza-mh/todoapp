@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react'
-import './App.css'
+import './App.scss'
 import Todos from '../Todos'
 
 class App extends Component<{}> {

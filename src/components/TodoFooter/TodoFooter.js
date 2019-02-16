@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import './TodoFooter.css'
+import './TodoFooter.scss'
 import TodoFilter from '../TodoFilter'
 
 type Props = {

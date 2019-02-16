@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import TodoList from '../TodoList'
 import TodoInput from '../TodoInput'
 import TodoFooter from '../TodoFooter'
-import './Todos.css'
+import './Todos.scss'
 import {
   removeTodoById,
   addTodo,

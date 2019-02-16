@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from 'react'
-import './TodoInput.css'
+import './TodoInput.scss'
 
 type Props = {
   onEnterText: Function
